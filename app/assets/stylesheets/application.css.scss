@@ -37,6 +37,7 @@
 
 header {
     position: fixed;
+    z-index: 10000;
     width: 100%;
     background-color: $blanc;
     font-size: 1em;
@@ -54,7 +55,8 @@ footer li a {
 }
 
 footer h2 {
-    color: $comp;
+  font-family: 'Destivano', serif;
+  color: $blanc;
 }
 
 .item-menu {

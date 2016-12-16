@@ -1,0 +1,44 @@
+// Place all the styles related to the intranet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'colors';
+
+#main-container {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 100%;
+  padding: 20px;
+}
+
+.container-echantillon {
+  margin: 5px 0;
+}
+
+.echantillon {
+  position: relative;
+  height: 200px;
+}
+
+.echantillon-externe {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  background: $main-transparent;
+  cursor: pointer;
+}
+
+.echantillon-interne {
+  margin: 5px;
+  height: 75%;
+  background: $blanc;
+}
+
+.sous-titre {
+  color: $pale;
+  text-align: center;
+  padding: 5px;
+}
