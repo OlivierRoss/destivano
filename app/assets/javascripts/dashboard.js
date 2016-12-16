@@ -75,12 +75,12 @@ $(function () {
         title: {
             text: 'Distribution de la production'
         },
-        subtitle: {
-            text: 'Source: <a href="http://netmarketshare.com/">netmarketshare.com</a>'
-        },
+        //subtitle: {
+        //    text: 'Source: <a href="http://netmarketshare.com/">netmarketshare.com</a>'
+        //},
         yAxis: {
             title: {
-                text: 'Total percent market share'
+                text: 'Pourcentage de la distribution de la production'
             }
         },
         plotOptions: {
@@ -93,7 +93,7 @@ $(function () {
             valueSuffix: '%'
         },
         series: [{
-            name: 'Browsers',
+            name: 'Pays',
             data: browserData,
             size: '60%',
             dataLabels: {

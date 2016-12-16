@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'accueil#index'
+  root 'accueil#index', :as => 'root'
 
   get 'entreprise/mission' => 'entreprise#mission'
   get 'entreprise/histoire' => 'entreprise#histoire'

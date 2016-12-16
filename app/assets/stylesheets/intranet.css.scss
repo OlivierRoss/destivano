@@ -4,6 +4,10 @@
 
 @import 'colors';
 
+body {
+  background: $fonce;
+}
+
 #main-container {
   position: absolute;
   top: 100px;
