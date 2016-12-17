@@ -152,6 +152,51 @@ $(function () {
     });
 });
 
+// Commandes par pays
+$(function () {
+    Highcharts.chart('commandes-pays', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: 'Commandes par pays',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 120
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Pays',
+            innerSize: '50%',
+            data: [
+                ['Europe', 59.1],
+                ['Canada', 9.97],
+                ['États-Unis', 30.97]
+            ]
+        }]
+    });
+});
+
 // Stock disponible
 $(function () {
     Highcharts.chart('stock-disponible', {
@@ -238,13 +283,132 @@ $(function () {
     });
 });
 
+// Coûts production
+
+
 ////// FINANCE //////
 
 
 
 ////// COMPATIBILITE //////
 
+// MCV
 
+$(function () {
+
+    Highcharts.chart('mcv', {
+
+            chart: {
+                type: 'gauge',
+                plotBackgroundColor: null,
+                plotBackgroundImage: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+
+            title: {
+                text: 'Pourcentage de marge sur coûts variables'
+            },
+
+            pane: {
+                startAngle: -150,
+                endAngle: 150,
+                background: [{
+                    backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, '#FFF'],
+                            [1, '#333']
+                        ]
+                    },
+                    borderWidth: 0,
+                    outerRadius: '109%'
+                }, {
+                    backgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, '#333'],
+                            [1, '#FFF']
+                        ]
+                    },
+                    borderWidth: 1,
+                    outerRadius: '107%'
+                }, {
+                    // default background
+                }, {
+                    backgroundColor: '#DDD',
+                    borderWidth: 0,
+                    outerRadius: '105%',
+                    innerRadius: '103%'
+                }]
+            },
+
+            // the value axis
+            yAxis: {
+                min: 0,
+                max: 100,
+
+                minorTickInterval: 'auto',
+                minorTickWidth: 1,
+                minorTickLength: 10,
+                minorTickPosition: 'inside',
+                minorTickColor: '#666',
+
+                tickPixelInterval: 30,
+                tickWidth: 2,
+                tickPosition: 'inside',
+                tickLength: 10,
+                tickColor: '#666',
+                labels: {
+                    step: 2,
+                    rotation: 'auto'
+                },
+                title: {
+                    text: '%'
+                },
+                plotBands: [{
+                    from: 0,
+                    to: 30,
+                    color: '#DF5353' // red
+                }, {
+                    from: 30,
+                    to: 50,
+                    color: '#DDDF0D' // yellow
+                }, {
+                    from: 50,
+                    to: 100,
+                    color: '#55BF3B' // green
+                }]
+            },
+
+            series: [{
+                name: 'MCV',
+                data: [57],
+                tooltip: {
+                    valueSuffix: ' %'
+                }
+            }]
+
+        },
+        // Add some life
+        function (chart) {
+            if (!chart.renderer.forExport) {
+                setInterval(function () {
+                    var point = chart.series[0].data[0],
+                        newVal,
+                        inc = 0;
+
+                    newVal = point.y + inc;
+                    if (newVal < 0 || newVal > 200) {
+                        newVal = point.y - inc;
+                    }
+
+                    point.update(newVal);
+
+                }, 3000);
+            }
+        });
+});
 
 ////// GRH //////
 

@@ -15,34 +15,3 @@ body {
   width: 100%;
   padding: 20px;
 }
-
-.container-echantillon {
-  margin: 5px 0;
-}
-
-.echantillon {
-  position: relative;
-  height: 200px;
-}
-
-.echantillon-externe {
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 5px;
-  right: 5px;
-  background: $main-transparent;
-  cursor: pointer;
-}
-
-.echantillon-interne {
-  margin: 5px;
-  height: 75%;
-  background: $blanc;
-}
-
-.sous-titre {
-  color: $fonce;
-  text-align: center;
-  padding: 5px;
-}
