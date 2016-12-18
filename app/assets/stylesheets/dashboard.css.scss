@@ -4,11 +4,22 @@
 
 @import 'colors';
 
-h2.collapsable {
-  color: $comp;
-  border-radius: 10px;
+.collapse-container {
+  border-radius: 0px;
   background-color: $pale;
   padding: 5px;
+}
+
+.collapse-title {
+  padding: 20px;
+  background-color: $blanc;
+  margin: 5px 0;
+  border-bottom: 7px solid black;
+}
+
+.collapse-title-text {
+  color: $pale;
+  font-size: 2em;
 }
 
 .indicateur {

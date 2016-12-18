@@ -197,14 +197,14 @@ $(function () {
     });
 });
 
-// Stock disponible
+// Stock utilise
 $(function () {
     Highcharts.chart('stock-disponible', {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Stock disponible'
+            text: 'Stock utilise'
         },
         xAxis: {
             categories: [10, 20, 30, 40, 50, 60, 70]
@@ -212,7 +212,7 @@ $(function () {
         yAxis: {
             min: 0,
             title: {
-                text: 'Stock cuir disponible'
+                text: 'Stock cuir utilise'
             },
             stackLabels: {
                 enabled: true,
@@ -250,35 +250,39 @@ $(function () {
         series: [{
             name: 'Beige',
             color: '#997E55',
-            data: [5, 3, 4, 7, 2]
+            data: [0, 222491, 849864, 58368, 0, 0 ,0]
         }, {
             name: 'Blanc',
             color: 'white',
-            data: [2, 2, 3, 2, 1]
+            data: [351390, 276894, 507634, 0, 0, 0, 0]
         }, {
             name: 'Cacao',
             color: '#695C3B',
-            data: [3, 4, 4, 2, 5]
+            data: [0, 0, 0, 0, 0, 0, 0]
         }, {
             name: 'Ébène',
             color: '#2D3230',
-            data: [5, 3, 4, 7, 2]
+            data: [425423, 838224, 230509, 162928, 343616, 93114, 0]
         }, {
             name: 'Gris',
             color: '#5B6469',
-            data: [2, 2, 3, 2, 1]
+            data: [ 624641, 197571, 227582, 0, 0, 0, 0]
         }, {
             name: 'Ivoire',
             color: '#E7CA8C',
-            data: [3, 4, 4, 2, 5]
+            data: [0, 560678, 672781, 230128, 387156, 0, 0]
+        }, {
+            name: 'Lilas',
+            color: 'purple',
+            data: [0, 0, 0, 230944, 0, 0, 0]
         }, {
             name: 'Noir',
             color: 'black',
-            data: [3, 4, 4, 2, 5]
+            data: [419945, 316613, 365568, 510510, 0 , 0, 0]
         }, {
             name: 'Sable',
             color: '#EEE6C0',
-            data: [3, 4, 4, 2, 5]
+            data: [0, 955960, 788805, 224720, 530432, 0, 0]
         }]
     });
 });
