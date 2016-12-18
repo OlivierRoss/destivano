@@ -445,7 +445,7 @@ $(function () {
             }
         },
         series: [{
-            name: 'Brands',
+            name: 'Retards',
             colorByPoint: true,
             data: [{
                 name: 'Administration',
@@ -475,7 +475,7 @@ $(function () {
                 name: 'Finances',
                 y: 0.04
             }, {
-                name: 'Plannification',
+                name: 'Planification',
                 y: 0.01
             }, {
                 name: 'Production',
@@ -566,6 +566,155 @@ $(function () {
 
 });
 
+// Absences
+$(function () {
+    Highcharts.chart('absences', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Absences selon départements'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Absences',
+            colorByPoint: true,
+            data: [{
+                name: 'Qualité ',
+                y: 0.316
+            }, {
+                name: 'Comptabilité',
+                y: 0.002
+            }, {
+                name: 'Design',
+                y: 0.012
+            }, {
+                name: 'Distribution',
+                y: 0.002
+            }, {
+                name: 'Maintenance',
+                y: 0.002
+            }, {
+                name: 'Marketing',
+                y: 0.002
+            },{
+                name: 'Planification',
+                y: 0.301
+            }, {
+                name: 'Production',
+                y: 0.326
+            }, {
+                name: 'Ressources humaines',
+                y: 0.034
+            }]
+        }]
+    });
+});
+
+// Vacances
+$(function () {
+    Highcharts.chart('vacances', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Vacances selon départements'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Vacances',
+            colorByPoint: true,
+            data: [{
+                name: 'Administration',
+                y: 0.033
+            }, {
+                name: 'Approvisionnement',
+                y: 0.046
+            }, {
+                name: 'Qualité ',
+                y: 0.048
+            }, {
+                name: 'Comptabilité',
+                y: 0.023
+            }, {
+                name: 'Design',
+                y: 0.044
+            }, {
+                name: 'Distribution',
+                y: 0.053
+            }, {
+                name: 'Maintenance',
+                y: 0.044
+            }, {
+                name: 'Marketing',
+                y: 0.009
+            }, {
+                name: 'Finances',
+                y: 0.020
+            }, {
+                name: 'Planification',
+                y: 0.031
+            }, {
+                name: 'Production',
+                y: 0.471
+            }, {
+                name: 'R & D',
+                y: 0.031
+            }, {
+                name: 'Réception',
+                y: 0.013
+            }, {
+                name: 'Ressources humaines',
+                y: 0.036
+            }, {
+                name: 'Système support et dev',
+                y: 0.042
+            }, {
+                name: 'Trafic',
+                y: 0.012
+            }, {
+                name: 'Ventes',
+                y: 0.044
+            }]
+        }]
+    });
+});
 
 ////// MARKETING //////
 
