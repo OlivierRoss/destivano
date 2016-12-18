@@ -416,6 +416,327 @@ $(function () {
 
 ////// GRH //////
 
+// Retards
+$(function () {
+    Highcharts.chart('retards', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Retards selon départements'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Administration',
+                y: 0.03
+            }, {
+                name: 'Approvisionnement',
+                y: 0.03
+            }, {
+                name: 'Qualité ',
+                y: 0.06
+            }, {
+                name: 'Comptabilité',
+                y: 0.02
+            }, {
+                name: 'Design',
+                y: 0.05
+            }, {
+                name: 'Distribution',
+                y: 0.07
+            }, {
+                name: 'Maintenance',
+                y: 0.04
+            }, {
+                name: 'Marketing',
+                y: 0.05
+            }, {
+                name: 'Finances',
+                y: 0.04
+            }, {
+                name: 'Plannification',
+                y: 0.01
+            }, {
+                name: 'Production',
+                y: 0.37
+            }, {
+                name: 'R & D',
+                y: 0.02
+            }, {
+                name: 'Réception',
+                y: 0.02
+            }, {
+                name: 'Ressources humaines',
+                y: 0.03
+            }, {
+                name: 'Système support et dev',
+                y: 0.04
+            }, {
+                name: 'Trafic',
+                y: 0.03
+            }, {
+                name: 'Ventes',
+                y: 0.09
+            }]
+        }]
+    });
+});
+
+// Pyramide des ages
+$(function () {
+    // Age categories
+    var categories = ['- 26', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 - 55', '56 - 60', '61 - 65', '65 + '];
+    $(document).ready(function () {
+        Highcharts.chart('pyramide-ages', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Pyramide des âges des techniciens de finition'
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '%';
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: 'Hommes',
+                data: [-52, -28, -23, -36, -26, -13, -11, -21, -2]
+            }, {
+                name: 'Femmes',
+                data: [30, 13, 25, 26, 19, 18, 21, 15, 8]
+            }]
+        });
+    });
+
+});
 
 
 ////// MARKETING //////
+
+// Budget market / gamme
+$(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        Highcharts.chart('budget-marketing', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Répartition du budget marketing'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: 'Ballerines',
+                    y: 6.33
+                }, {
+                    name: 'Bottes',
+                    y: 14.94
+                }, {
+                    name: 'Bottillons',
+                    y: 11.75
+                }, {
+                    name: 'Bottines ouvertes',
+                    y: 4.70
+                }, {
+                    name: 'Chaussures loisirs',
+                    y: 10.22
+                }, {
+                    name: 'Souliers standards',
+                    y: 22.96
+                }, {
+                    name: 'Souliers talon haut',
+                    y: 22.15
+                }, {
+                    name: 'Escarpins',
+                    y: 6.95
+                }]
+            }]
+        });
+    });
+});
+
+// Parts de marche
+$(function () {
+    Highcharts.chart('part-marche', {
+        chart: {
+            type: 'area'
+        },
+        title: {
+            text: 'Parts de marché de Destivano par région'
+        },
+        xAxis: {
+            categories: ['2015', '2016', '2017', '2018'],
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: '%'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 1000;
+                }
+            }
+        },
+        tooltip: {
+            split: true,
+            valueSuffix: ' %'
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [{
+            name: 'Canada',
+            data: [0.23, 0.22, 0.21, 0.21]
+        }, {
+            name: 'USA',
+            data: [0.13, 0.11, 0.11, 0.10]
+        }, {
+            name: 'Europe',
+            data: [0.37, 0.36, 0.37, 0.35]
+        }]
+    });
+});
+
+// valeur-client
+$(function () {
+    // Create the chart
+    Highcharts.chart('valeur-client', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Valeur et coûts moyen d\'un client'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Valeur'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}$'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}$</b> of total<br/>'
+        },
+
+        series: [{
+            name: 'Indicateurs',
+            colorByPoint: true,
+            data: [{
+                name: 'Coût moyen d\'atteinte',
+                y: 80.3
+            }, {
+                name: 'Valeur moyenne brute client',
+                y: 624
+            }, {
+                name: 'Coût d\'acquisition client',
+                y: 542
+            }, {
+                name: 'Profit moyen / client',
+                y: 25
+            }]
+        }]
+    });
+});
