@@ -503,69 +503,6 @@ $(function () {
     });
 });
 
-// Pyramide des ages
-$(function () {
-    // Age categories
-    var categories = ['- 26', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 - 55', '56 - 60', '61 - 65', '65 + '];
-    $(document).ready(function () {
-        Highcharts.chart('pyramide-ages', {
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Pyramide des âges des techniciens de finition'
-            },
-            xAxis: [{
-                categories: categories,
-                reversed: false,
-                labels: {
-                    step: 1
-                }
-            }, { // mirror axis on right side
-                opposite: true,
-                reversed: false,
-                categories: categories,
-                linkedTo: 0,
-                labels: {
-                    step: 1
-                }
-            }],
-            yAxis: {
-                title: {
-                    text: null
-                },
-                labels: {
-                    formatter: function () {
-                        return Math.abs(this.value) + '%';
-                    }
-                }
-            },
-
-            plotOptions: {
-                series: {
-                    stacking: 'normal'
-                }
-            },
-
-            tooltip: {
-                formatter: function () {
-                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
-                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
-                }
-            },
-
-            series: [{
-                name: 'Hommes',
-                data: [-52, -28, -23, -36, -26, -13, -11, -21, -2]
-            }, {
-                name: 'Femmes',
-                data: [30, 13, 25, 26, 19, 18, 21, 15, 8]
-            }]
-        });
-    });
-
-});
-
 // Absences
 $(function () {
     Highcharts.chart('absences', {
@@ -714,6 +651,69 @@ $(function () {
             }]
         }]
     });
+});
+
+// Pyramide des ages
+$(function () {
+    // Age categories
+    var categories = ['- 26', '26 - 30', '31 - 35', '36 - 40', '41 - 45', '46 - 50', '51 - 55', '56 - 60', '61 - 65', '65 + '];
+    $(document).ready(function () {
+        Highcharts.chart('pyramide-ages', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Pyramide des âges des techniciens de finition'
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '%';
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: 'Hommes',
+                data: [-52, -28, -23, -36, -26, -13, -11, -21, -2]
+            }, {
+                name: 'Femmes',
+                data: [30, 13, 25, 26, 19, 18, 21, 15, 8]
+            }]
+        });
+    });
+
 });
 
 ////// MARKETING //////
@@ -889,3 +889,5 @@ $(function () {
         }]
     });
 });
+
+$(document).resize($(window).width(), $(window).height());
